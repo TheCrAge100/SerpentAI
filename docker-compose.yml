@@ -1,0 +1,9 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+
+  crossbar:
+    image: crossbario/crossbar:latest
+    ports: ["9999:9999"]
+    volumes: ["./serpent/crossbar.json:/node/.crossbar/config.json"]
