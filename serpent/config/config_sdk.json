@@ -1,1 +1,11 @@
-{}
+{
+  "datasets": {
+    "frames": "datasets/frames",
+    "recordings": "datasets/recordings"
+  },
+  "plugins": {
+    "games": "plugins/games",
+    "game_agents": "plugins/game_agents",
+    "rl_agents": "plugins/rl_agents"
+  }
+}

@@ -14,6 +14,33 @@
 
 Development work has resumed on the framework with the aim of bringing it into 2020: Python 3.8+, Less Dependencies, Ease of Use (Installer, GUI) and much more! Still open-source with a permissive license and looking into a Steam distribution for non-technical users. 🐍
 
+## Quick Start
+
+**Prerequisites:** Python 3.8+, [Poetry](https://python-poetry.org/), [Docker](https://www.docker.com/) (for Redis and Crossbar)
+
+```bash
+# Clone and install
+git clone https://github.com/SerpentAI/SerpentAI.git
+cd SerpentAI
+poetry install
+
+# Start Redis and Crossbar (Docker)
+docker compose up -d
+
+# First-time setup
+poetry run serpent setup
+poetry run serpent dev_setup   # Copies config to project root for development
+
+# Verify
+poetry run serpent --help
+```
+
+Or use the convenience script: `./scripts/run-local.ps1` (Windows) or `./scripts/run-local.sh` (Linux).
+
+**Try the demo:** After setup, run `serpent launch Demo` to open the demo window, then `serpent play Demo DemoAgent` in another terminal to run the agent.
+
+See [docs/LOCAL_SETUP.md](docs/LOCAL_SETUP.md) for detailed setup and [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for common issues.
+
 ## ~~Warning: End of life (November 2018)~~
 
 Serpent.AI is a simple yet powerful, novel framework to assist developers in the creation of game agents. Turn ANY video game you own  into a sandbox environment ripe for experimentation, all with familiar Python code. The framework's _raison d'être_ is first and foremost to provide a valuable tool for Machine Learning & AI research. It also turns out to be ridiculously fun to use as a hobbyist (and dangerously addictive; a fair warning)!

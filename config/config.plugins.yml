@@ -1,1 +1,4 @@
-# Stub to make unit testing possible...
+# Plugin-specific configuration. Add sections keyed by plugin class name.
+# Example:
+# MyGamePlugin:
+#   some_setting: value

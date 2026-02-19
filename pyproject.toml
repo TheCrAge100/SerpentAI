@@ -47,6 +47,8 @@ include = [
     "serpent/templates/SerpentGamePlugin/files/api/__init__.py",
     "serpent/config/config.yml",
     "serpent/config/config.plugins.yml",
+    "serpent/config/config.json",
+    "serpent/config/config_sdk.json",
     "serpent/offshoot.manifest.json",
     "serpent/offshoot.yml",
     "serpent/crossbar.json",
@@ -67,19 +69,16 @@ scikit-image = "~0.17.1"
 scikit-learn = "~0.22"
 h5py = "~2.10"
 
-## PyTorch (with CUDA 10.1 to accomodate Tensorflow)
-## Cool Stuff: If PyTorch is imported first, importing Tensorflow will detect CUDA + cuDNN bundled with PyTorch
-torch = [
-    { url = "https://download.pytorch.org/whl/cu101/torch-1.5.0%2Bcu101-cp38-cp38-win_amd64.whl", markers = "sys_platform == 'win32'" },
-    { url = "https://download.pytorch.org/whl/cu101/torch-1.5.0%2Bcu101-cp38-cp38-linux_x86_64.whl", markers = "sys_platform == 'linux'" },
-]
-torchvision = [
-    { url = "https://download.pytorch.org/whl/cu101/torchvision-0.6.0%2Bcu101-cp38-cp38-win_amd64.whl", markers = "sys_platform == 'win32'" },
-    { url = "https://download.pytorch.org/whl/cu101/torchvision-0.6.0%2Bcu101-cp38-cp38-linux_x86_64.whl", markers = "sys_platform == 'linux'" },
-]
+## PyTorch - CPU from PyPI (works without CUDA). For GPU: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+torch = ">=1.5,<2.0"
+torchvision = ">=0.6,<0.8"
 ## Tensorflow
 protobuf = "3.11.3"  # To resolve dependency issue...
 tensorflow = "~2.2"
+
+# Config
+pyyaml = "~6.0"
+requests = ">=2.25"
 
 # CLI
 click = "~7.1"
@@ -116,7 +115,7 @@ redis = "~3.4"
 aioredis = "~1.3"
 kivy = "2.0.0rc2"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "~5.4"
 ipython = "~7.14"
 notebook = "~6.0"
